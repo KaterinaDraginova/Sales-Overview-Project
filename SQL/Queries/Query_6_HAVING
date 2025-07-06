@@ -1,0 +1,15 @@
+-- Query 6: Frequent & High-Spending Customers (HAVING Clause)
+-- Finds customers with more than 5 orders and sales above 20,000
+
+
+SELECT 
+    c.customer_name, 
+    COUNT(fs.order_number) AS total_orders, 
+    SUM(fs.sales) AS total_sales
+FROM FactSales fs
+JOIN DimCustomer c ON c.customer_id = fs.customer_id
+GROUP BY c.customer_name
+HAVING 
+    COUNT(fs.order_number) > 5 AND
+    SUM(fs.sales) > 20000
+ORDER BY total_sales DESC;
