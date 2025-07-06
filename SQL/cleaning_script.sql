@@ -1,5 +1,5 @@
-This script performs data cleaning and transformation.
-It includes data type conversions, formatting fixes, null replacements, and value standardization to prepare the dataset for analytical use in Power BI.
+--This script performs data cleaning and transformation.
+--It includes data type conversions, formatting fixes, null replacements, and value standardization to prepare the dataset for analytical use in Power BI.
 
 
 
