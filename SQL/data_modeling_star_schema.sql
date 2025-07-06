@@ -9,13 +9,16 @@
 
 
     
+-- ======================================
+-- Create Date Dimension (DimDate)
+-- ======================================
+
 -- Drop the table if it exists
 DROP TABLE IF EXISTS DimDate;
 
-
 -- Create the DimDate table
 CREATE TABLE DimDate (
-    DateID INT PRIMARY KEY,         
+    DateID INT PRIMARY KEY,         -- Format: YYYYMMDD
     OrderDate DATE,
     Year INT,
     Quarter INT,
@@ -24,7 +27,7 @@ CREATE TABLE DimDate (
     Day INT
 );
 
--- Populate DimDate from 2003-01-01 to 2005-12-31
+-- Populate DimDate from 2003-01-01 to 2005-12-31 (adjust as needed)
 DECLARE @CurrentDate DATE = '2003-01-01';
 DECLARE @EndDate DATE = '2005-12-31';
 
@@ -63,6 +66,7 @@ CREATE TABLE DimCustomer (
     Contact_lastName VARCHAR(50)
 );
 
+-- Insert unique customers
 INSERT INTO DimCustomer (Customer_name, Contact_firstName, Contact_lastName)
 SELECT DISTINCT
     customer_name,
@@ -81,6 +85,7 @@ CREATE TABLE DimProduct (
     MSRP INT
 );
 
+-- Insert unique products
 INSERT INTO DimProduct (ProductCode, ProductLine, MSRP)
 SELECT DISTINCT
     product_code,
@@ -101,6 +106,7 @@ CREATE TABLE DimLocation (
     Territory VARCHAR(20)
 );
 
+-- Insert unique location entries
 INSERT INTO DimLocation (City, State, PostalCode, Country, Territory)
 SELECT DISTINCT
     city,
@@ -228,6 +234,10 @@ JOIN DimLocation l
    AND p.state = l.State
    AND p.postal_code = l.PostalCode
    AND p.country = l.Country;
+
+-- Final validation queries (optional)
+SELECT * FROM FactSales;
+SELECT * FROM Pizza;
 
 -- Final validation queries (optional)
 SELECT * FROM FactSales;
