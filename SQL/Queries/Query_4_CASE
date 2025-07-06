@@ -1,0 +1,14 @@
+-- Query 4: Categorize Orders by Value Tier (CASE Statement)
+-- Assigns 'High', 'Medium', or 'Low' labels based on order value
+
+
+SELECT 
+    fs.order_Number,
+    fs.sales,
+    CASE 
+        WHEN fs.sales > 1000 THEN 'High Value'
+        WHEN fs.sales BETWEEN 500 AND 1000 THEN 'Medium Value'
+        ELSE 'Low Value'
+    END AS order_category
+FROM FactSales fs
+ORDER BY fs.sales DESC;
