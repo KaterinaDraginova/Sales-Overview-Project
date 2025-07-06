@@ -1,0 +1,21 @@
+-- Query 2: Top 10 Cities by Total Sales (Using CTE and RANK)
+-- Identifies the top-performing cities ranked by total sales volume
+
+WITH CitySales AS (
+    SELECT 
+        l.City,
+        l.Country,
+        SUM(fs.sales) AS total_sales
+    FROM FactSales fs
+    JOIN DimLocation l ON fs.location_ID = l.Location_ID
+    GROUP BY l.City, l.Country
+),
+Ranked AS (
+    SELECT 
+        *, 
+        RANK() OVER (ORDER BY total_sales DESC) AS sales_rank
+    FROM CitySales
+)
+SELECT *
+FROM Ranked
+WHERE sales_rank <= 10;
