@@ -1,3 +1,9 @@
+This script performs data cleaning and transformation.
+It includes data type conversions, formatting fixes, null replacements, and value standardization to prepare the dataset for analytical use in Power BI.
+
+
+
+
 -- Convert 'Order_Number' column to INTEGER data type
 ALTER TABLE pizza
 ALTER COLUMN Order_Number INT;
@@ -70,15 +76,6 @@ SET phone =
                 phone, '(', ''), ')', ''), '-', ''), '.', ''), ' ', ''), ',', ''), '+', '')
     END;
 
--- Clean up and standardize address-related fields
-
--- Replace 'Street' with standardized abbreviation 'Str.'
-UPDATE pizza
-SET addressline1 = REPLACE(addressline1, 'Street', 'Str.');
-
--- Replace NULL values in 'addressline2' with 'N/A'
-UPDATE pizza
-SET addressline2 = ISNULL(addressline2, 'N/A');
 
 -- Standardize city name
 UPDATE pizza
@@ -151,19 +148,3 @@ WHERE state = 'N/A'
     'Makati City'
 );
 
--- Clean and standardize 'postal_code' by removing spaces
-UPDATE pizza
-SET postal_code = REPLACE(postal_code, ' ', '')
-WHERE postal_code IS NOT NULL;
-
--- Replace NULL 'postal_code' entries with 'N/A'
-UPDATE pizza
-SET postal_code = ISNULL(postal_code, 'N/A');
-
--- Set final data type for 'postal_code'
-ALTER TABLE pizza
-ALTER COLUMN postal_code VARCHAR(10);
-
--- Drop 'phone' column after extracting or standardizing relevant data
-ALTER TABLE pizza
-DROP COLUMN phone;
