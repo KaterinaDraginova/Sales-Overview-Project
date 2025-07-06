@@ -1,0 +1,10 @@
+-- Query 1: Total Sales and Order Count by Deal Size Category
+-- Aggregates sales and order counts grouped by each deal size tier
+
+SELECT 
+    fs.deal_size, 
+    SUM(fs.sales) AS total_sales, 
+    COUNT(*) AS order_count
+FROM FactSales fs
+GROUP BY fs.deal_size
+ORDER BY total_sales DESC;
