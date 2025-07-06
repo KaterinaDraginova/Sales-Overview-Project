@@ -1,0 +1,13 @@
+-- Query 5: Customers with Sales Above Average (Subquery)
+-- Returns customers with individual sales above overall average
+
+
+SELECT DISTINCT 
+    fs.customer_id, 
+    c.customer_name
+FROM FactSales fs
+JOIN DimCustomer c ON fs.customer_id = c.customer_id
+WHERE fs.sales > (
+    SELECT ROUND(AVG(sales), 2) 
+    FROM FactSales
+);
