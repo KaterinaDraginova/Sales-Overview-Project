@@ -1,3 +1,4 @@
+
 # Sales-Overview-Project
 
 ![image](https://github.com/user-attachments/assets/16fde0f7-3063-4000-80bc-4972887d7254)
@@ -35,6 +36,7 @@ The dataset was sourced from Kaggle and initially downloaded as a CSV file. Sinc
 
 💡 For full details on data cleaning logic, please refer to the [cleaning_script](SQL/cleaning_script.sql) included in this repository.
 
+
 ## 2. Data Modeling (Star Schema)
 To optimize the dataset for analytical queries, a star schema model was designed. This structure simplifies the querying process and improves performance in Power BI.
 
@@ -55,7 +57,11 @@ The teble was created using SQL to enable flexible and accurate time-based analy
 
 This star schema promotes data integrity, efficient joins, and allows for clear slicing and filtering in Power BI.
 
-💡 For full details on data cleaning logic, please refer to the [data_modeling_start_schema](SQL/data_modeling_star_schema.sql) included in this repository.
+💡 For full details on data modeling logic, please refer to the [data_modeling_start_schema](SQL/data_modeling_star_schema.sql) included in this repository.
+
+
+<img width="780" alt="image" src="https://github.com/user-attachments/assets/c292cb3c-cea3-4305-9baa-5bdb45cde002" />
+
 
 ## 3. Power BI Development
 In Power BI Desktop, I connected directly to the cleaned and structured SQL database to create an interactive and insight-driven dashboard available for business users and decision-makers.
