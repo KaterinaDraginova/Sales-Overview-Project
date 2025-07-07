@@ -38,34 +38,23 @@ The dataset was sourced from Kaggle and initially downloaded as a CSV file. Sinc
 ## 2. Data Modeling (Star Schema)
 To optimize the dataset for analytical queries, a star schema model was designed. This structure simplifies the querying process and improves performance in Power BI.
 
-🔸 Fact Table: FactSales
-Contains core transactional data:
+### **Fact Table**:  
+ 
+**FactSales** - Contains core transactional data: Order number, Quantity ordered, Price each, Sales value, Deal size, Orderline number, Foreign keys to dimension tables
 
-Order number
+### **Dimension Tables**:  
 
-Quantity ordered
+**DimDate** – Contains one row per calendar day (used for time-series analysis). Includes fields like DateID, OrderDate, Year, Quarter, Month, and MonthName.
+The teble was created using SQL to enable flexible and accurate time-based analysis (e.g., group by quarter, year, etc.), which is not possible with raw date fields alone.
 
-Price each
+**DimCustomer** Contains – Unique customers and their contact names.
 
-Sales value
+**DimProduct** Conatins – Products, product lines, and MSRP values.
 
-Deal size
-
-Orderline number
-
-Foreign keys to dimension tables
-
-🔹 Dimension Tables:
-DimDate – Contains one row per calendar day (used for time-series analysis).
-Includes fields like DateID, OrderDate, Year, Quarter, Month, and MonthName.
-
-A date dimension was created using SQL to enable flexible and accurate time-based analysis (e.g., group by quarter, year, etc.), which is not possible with raw date fields alone.
-
-DimCustomer – Unique customers and their contact names.
-
-DimProduct – Products, product lines, and MSRP values.
-
-DimLocation – Customer geography: city, state, postal code, country, and territory.
+**DimLocation** Contains – City, state, territory.
 
 This star schema promotes data integrity, efficient joins, and allows for clear slicing and filtering in Power BI.
+
+💡 For full details on data cleaning logic, please refer to the [data_modeling_start_schema](SQL/data_modeling_start_schema.sql) included in this repository.
+
 
