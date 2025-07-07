@@ -1,4 +1,4 @@
-  Script: star_schema_transformation.sql
+  Script: data_modeling_star_schema.sql
   Description:
     This script creates a star schema data model from the raw Pizza dataset.
     It involves creating dimension tables (Date, Customer, Product, Location),
