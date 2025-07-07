@@ -55,6 +55,6 @@ The teble was created using SQL to enable flexible and accurate time-based analy
 
 This star schema promotes data integrity, efficient joins, and allows for clear slicing and filtering in Power BI.
 
-💡 For full details on data cleaning logic, please refer to the [data_modeling_start_schema](SQL/data_modeling_start_schema.sql) included in this repository.
+💡 For full details on data cleaning logic, please refer to the [data_modeling_start_schema](SQL/data_modeling_star_schema.sql) included in this repository.
 
 
