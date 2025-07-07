@@ -33,7 +33,7 @@ The dataset was sourced from Kaggle and initially downloaded as a CSV file. Sinc
 
 * **Null Handling**: Filled or replaced missing values in columns like state.
 
-💡 For full details on data cleaning logic, please refer to the [cleaning_script](SQL/Queries/cleaning_script.sql) included in this repository.
+💡 For full details on data cleaning logic, please refer to the [cleaning_script](SQL/cleaning_script.sql) included in this repository.
 
 ## 2. Data Modeling (Star Schema)
 To optimize the dataset for analytical queries, a star schema model was designed. This structure simplifies the querying process and improves performance in Power BI.
