@@ -1,11 +1,11 @@
-  Script: data_modeling_star_schema.sql
-  Description:
-    This script creates a star schema data model from the raw Pizza dataset.
-    It involves creating dimension tables (Date, Customer, Product, Location),
-    cleaning and enriching location data, and building a fact table (FactSales)
-    that links to all dimensions using surrogate keys.
-    This transformation improves data quality and enables efficient analytics
-    in Power BI or other BI tools.
+-- Script: data_modeling_star_schema.sql
+-- Description:
+--   This script creates a star schema data model from the raw Pizza dataset.
+--   It involves creating dimension tables (Date, Customer, Product, Location),
+--   cleaning and enriching location data, and building a fact table (FactSales)
+--   that links to all dimensions using surrogate keys.
+--   This transformation improves data quality and enables efficient analytics
+--   in Power BI or other BI tools.
 
 
     
