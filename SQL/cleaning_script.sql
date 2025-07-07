@@ -8,9 +8,11 @@
 ALTER TABLE pizza
 ALTER COLUMN Order_Number INT;
 
+
 -- Convert 'quantity_ordered' column to INTEGER data type
 ALTER TABLE pizza
 ALTER COLUMN quantity_ordered INT;
+
 
 -- Convert 'sales' column to FLOAT
 -- First, identify non-numeric entries that could cause conversion issues
@@ -18,13 +20,16 @@ SELECT *
 FROM pizza
 WHERE TRY_CAST(Sales AS FLOAT) IS NULL AND Sales IS NOT NULL;
 
+
 -- Clean 'sales' column by removing commas
 UPDATE pizza
 SET Sales = REPLACE(Sales, ',', '');
 
+
 -- Apply the data type conversion
 ALTER TABLE pizza
 ALTER COLUMN Sales FLOAT;
+
 
 -- Convert 'price_each' column to FLOAT
 -- First, identify problematic values
@@ -32,37 +37,46 @@ SELECT *
 FROM pizza
 WHERE TRY_CAST(price_each AS FLOAT) IS NULL AND price_each IS NOT NULL;
 
+
 -- Clean 'price_each' column by removing commas
 UPDATE pizza
 SET price_each = REPLACE(price_each, ',', '');
+
 
 -- Apply the data type conversion
 ALTER TABLE pizza
 ALTER COLUMN price_each FLOAT;
 
+
 -- Convert 'orderline_number' column to INTEGER
 ALTER TABLE pizza
 ALTER COLUMN orderline_number INT;
+
 
 -- Convert 'order_date' column to DATE format
 ALTER TABLE pizza
 ALTER COLUMN order_date DATE;
 
+
 -- Convert 'qtr_id' column to INTEGER
 ALTER TABLE pizza
 ALTER COLUMN qtr_id INT;
+
 
 -- Convert 'month_id' column to INTEGER
 ALTER TABLE pizza
 ALTER COLUMN month_id INT;
 
+
 -- Convert 'year_id' column to INTEGER
 ALTER TABLE pizza
 ALTER COLUMN year_id INT;
 
+
 -- Convert 'msrp' column to INTEGER
 ALTER TABLE pizza
 ALTER COLUMN msrp INT;
+
 
 -- Standardize 'phone' values by removing special characters and formatting them consistently
 UPDATE pizza
@@ -77,13 +91,16 @@ SET phone =
     END;
 
 
+
 -- Standardize city name
 UPDATE pizza
 SET city = REPLACE(city, 'NYC', 'New York City');
 
+
 -- Replace NULL values in 'state' with 'N/A'
 UPDATE pizza
 SET state = ISNULL(state, 'N/A');
+
 
 -- Backfill missing state values in 'factsales' based on known city-to-country mappings
 UPDATE factsales
